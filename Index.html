@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>	
+<html>
+
+<!-- Toutes les balises d'entête -->
+<head>
+	<!-- Encodage de la page -->
+	<meta charset="utf-8" lang="fr"/>
+	<!-- Nom de la page -->
+	<title>Fomulaire JS</title>
+	<!-- Lien vers le fichier de style CSS -->
+	<link type="text/css" rel="stylesheet" href="../../CSS/JS_Form_tp_DS.css"/>
+</head>
+
+<!--Contenu de le page-->
+<body>
+	<!-- Haut de la page -->
+	<header>
+	
+	</header>
+	
+	<!-- Corps de la page  -->
+	<blockquote>
+		<table style="border : 1px solid black;">
+		<tr><td>couleur de fond(rgb)<td><input type = "range" max = 255 min = 0 id="backgroundColor"> <td rowspan = 6 id="zone"><h3>Zone de test</h3>
+			<tr><td>padding<td><input type = "range" max = 30 min = 0 id="padding">
+			<tr><td>height<td><input type = "range" max = 500 min = 0 id="height">
+			<tr><td>width<td><input type = "range" max = 200 min = 0 id="width">
+			<tr><td>arrondi<td><input type = "range" max = 60 min = 0 id="border-radius">
+			<tr><td>rotation<td><input type = "range" max = 180 min = 0 id="rotation">
+		</table>
+<script>
+let inputs = document.getElementsByTagName("input");
+for(let i = 0; inputs.length; i++)
+	inputs[i].addEventListener("change", changerZone);
+
+function changerZone(event)
+{
+	console.log(event);
+	let zone = document.getElementById("zone");
+	let id = event.srcElement.id;
+	let value = event.srcElement.value;
+	switch(id)
+	{
+		case ("rotation"):
+		zone.style.transform = "rotate("+value+"deg)";
+		break;
+		case ("backgroundColor"):
+		zone.style.backgroundColor = "rgb("+value+","+value+","+value+")";
+		break;
+		
+		default:
+		zone.style.setProperty(id, value + "px");
+		break;
+	}
+	
+}
+</script>
+		
+	
+	</blockquote>
+	
+	<!-- Pas de la page  -->
+	<footer>
+	
+	</footer>
+</body>
+</html>
